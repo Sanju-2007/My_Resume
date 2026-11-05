@@ -2,40 +2,38 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { 
-  Sliders, 
   Sparkles, 
   Layers, 
-  Eye, 
-  Sun, 
-  Moon, 
   Zap, 
-  Maximize2, 
   Activity,
   Cpu,
-  ChevronRight,
-  MoveHorizontal
+  MoveHorizontal,
+  Server,
+  Code2,
+  Database,
+  Terminal,
+  ShieldCheck,
+  CheckCircle2
 } from "lucide-react";
 import { InteractiveTilt } from "./InteractiveTilt";
 
 export function AppleXdrShowcase() {
-  // Slider state for SDR vs XDR (percentage from 0 to 100)
+  // Slider state for Standard vs Optimized (percentage from 0 to 100)
   const [sliderPos, setSliderPos] = useState(55);
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Active layer in exploded view
+  // Active layer in engineering stack
   const [activeLayer, setActiveLayer] = useState<0 | 1 | 2 | 3>(0);
 
-  // Active view mode: "comparison" | "miniled" | "layers"
-  const [viewMode, setViewMode] = useState<"comparison" | "miniled" | "layers">("comparison");
+  // Active view mode: "comparison" | "matrix" | "layers"
+  const [viewMode, setViewMode] = useState<"comparison" | "matrix" | "layers">("comparison");
 
-  // Mouse position for mini-LED spotlight
+  // Mouse position for concurrency grid spotlight
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
-  const [isHoveringMiniLed, setIsHoveringMiniLed] = useState(false);
 
   // Drag handler for comparison slider
   const handlePointerDown = () => setIsDragging(true);
-  const handlePointerUp = () => setIsDragging(false);
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
@@ -62,69 +60,73 @@ export function AppleXdrShowcase() {
   const layersInfo = [
     {
       id: 0,
-      title: "Mini-LED Backlight Array",
-      subtitle: "Over 10,000 custom diodes in individually controlled dimming zones",
-      description: "An array of individually calibrated mini-LEDs delivers extreme peak brightness and deep, true inky blacks with localized backlight modulation.",
-      metric: "10,000+",
-      metricLabel: "Custom Mini-LED Diodes",
-      accent: "#315EFB",
+      title: "Core Systems & Concurrency",
+      subtitle: "High-throughput engines engineered in Go & C++",
+      description: "Low-level systems architecture utilizing goroutines, sync primitives, zero-copy memory-mapped I/O, and Raft consensus protocols to achieve sub-2ms tail latencies.",
+      metric: "65,000 msg/s",
+      metricLabel: "Peak Single-Node Ingestion",
+      icon: <Cpu className="w-4 h-4 text-cobalt" />,
+      tags: ["Go (Golang)", "Zero-Copy MMap", "Raft Consensus", "TCP Sockets"],
     },
     {
       id: 1,
-      title: "Custom Optical Films & Diffusers",
-      subtitle: "Seven optical sheets shaping light distribution",
-      description: "Custom-engineered diffusers and cross-polarizing optical films shape the light beam, eliminating halo flare while ensuring edge-to-edge color fidelity.",
-      metric: "7 Layers",
-      metricLabel: "Precision Optical Geometry",
-      accent: "#8B5CF6",
+      title: "Distributed Data & Storage",
+      subtitle: "Relational modeling, caching tiers, and query optimization",
+      description: "Architecting resilient data layers with PostgreSQL ACID guarantees, Redis in-memory pub/sub caching, and partitioned key-value stores with zero downtime.",
+      metric: "Sub-2ms",
+      metricLabel: "Cluster Query Response",
+      icon: <Database className="w-4 h-4 text-emerald-400" />,
+      tags: ["PostgreSQL", "Redis", "EXPLAIN ANALYZE", "Vector DBs"],
     },
     {
       id: 2,
-      title: "Oxide TFT Liquid Crystal Substrate",
-      subtitle: "High-mobility oxide thin film transistors driving 120Hz ProMotion",
-      description: "Enables pixels to charge up to 2x faster than amorphous silicon, facilitating buttery-smooth 120Hz ProMotion adaptive refresh rates with zero ghosting.",
-      metric: "120 Hz",
-      metricLabel: "Adaptive ProMotion Dynamics",
-      accent: "#10B981",
+      title: "High-Framerate Web Engineering",
+      subtitle: "Local-first apps and precision digital interfaces",
+      description: "Crafting client-side experiences using Next.js 15, React 19, TypeScript, and Tailwind CSS. Built with optimistic UI mutations, CRDT synchronization, and a locked 60 FPS frame budget.",
+      metric: "60 FPS",
+      metricLabel: "Fluid UI Frame Budget",
+      icon: <Code2 className="w-4 h-4 text-purple-400" />,
+      tags: ["Next.js 15", "TypeScript", "Tailwind CSS", "CRDTs"],
     },
     {
       id: 3,
-      title: "Retina Pixel Glass & P3 Color Gamut",
-      subtitle: "Extreme 1,000,000:1 contrast ratio with 1 billion colors",
-      description: "Displays rich cinematic P3 wide color with sub-millisecond pixel responsiveness and true 1,600-nit specular peak highlights for high-fidelity digital systems.",
-      metric: "1,000,000:1",
-      metricLabel: "Native Contrast Ratio",
-      accent: "#EC4899",
+      title: "Algorithmic Foundation & Rigor",
+      subtitle: "Advanced data structures and competitive problem solving",
+      description: "Deep theoretical grounding across graph algorithms, dynamic programming, and complexity optimization. Consistently maintaining top-percentile rating across 500+ solved algorithmic problems.",
+      metric: "500+",
+      metricLabel: "Algorithmic Problems Solved",
+      icon: <ShieldCheck className="w-4 h-4 text-rose-400" />,
+      tags: ["Graphs & Trees", "Dynamic Programming", "LeetCode", "Codeforces"],
     },
   ];
 
   return (
-    <section id="xdr" className="relative bg-[#050505] text-white py-28 sm:py-36 px-6 sm:px-8 lg:px-12 overflow-hidden border-y border-neutral-900">
-      {/* Apple Specular Ambient Glow */}
+    <section id="architecture" className="relative bg-[#050505] text-white py-28 sm:py-36 px-6 sm:px-8 lg:px-12 overflow-hidden border-y border-neutral-900">
+      {/* Ambient Specular Back-Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-b from-cobalt/20 via-indigo-600/10 to-transparent blur-[120px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto space-y-16 sm:space-y-24">
-        {/* Apple Headline & Editorial Intro */}
+        {/* Editorial Headline & Mission Statement */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono tracking-wider text-cobalt bg-cobalt/10 border border-cobalt/25">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>LIQUID RETINA XDR // HIGH-PRECISION ENGINEERING</span>
+            <span>ENGINEERING ARCHITECTURE // G S K SANJAY VARMA</span>
           </div>
 
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]">
-            Extreme Dynamic Range.
+            Engineered for Extreme Performance.
           </h2>
 
           <p className="text-xl sm:text-2xl font-serif italic text-neutral-400 font-normal leading-relaxed">
-            Deep blacks. Remarkable highlights. Meticulous physical fidelity.
+            From low-level distributed systems to fluid, pixel-precise digital experiences.
           </p>
 
           <p className="text-sm sm:text-base text-neutral-400 max-w-2xl mx-auto leading-relaxed pt-2">
-            Just like Apple’s Liquid Retina XDR display balances 10,000 mini-LED local dimming zones for uncompromising contrast, my engineering architecture balances distributed consensus with sub-millisecond precision.
+            I don’t just write code—I architect resilient digital systems where zero-copy data pipelines, disciplined state models, and delightful user interaction converge.
           </p>
 
           {/* Interactive Mode Toggle Bar */}
-          <div className="flex items-center justify-center gap-2 pt-6">
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-6">
             <button
               onClick={() => setViewMode("comparison")}
               className={`px-4 py-2 rounded-full text-xs font-mono transition-all flex items-center gap-2 ${
@@ -134,19 +136,19 @@ export function AppleXdrShowcase() {
               }`}
             >
               <MoveHorizontal className="w-3.5 h-3.5" />
-              <span>SDR vs XDR Comparison</span>
+              <span>Standard vs Sanjay's Architecture</span>
             </button>
 
             <button
-              onClick={() => setViewMode("miniled")}
+              onClick={() => setViewMode("matrix")}
               className={`px-4 py-2 rounded-full text-xs font-mono transition-all flex items-center gap-2 ${
-                viewMode === "miniled"
+                viewMode === "matrix"
                   ? "bg-white text-black font-bold shadow-lg"
                   : "bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800"
               }`}
             >
               <Zap className="w-3.5 h-3.5" />
-              <span>10,000 Mini-LED Dimming</span>
+              <span>Distributed Concurrency Matrix</span>
             </button>
 
             <button
@@ -158,7 +160,7 @@ export function AppleXdrShowcase() {
               }`}
             >
               <Layers className="w-3.5 h-3.5" />
-              <span>Exploded Architecture</span>
+              <span>Engineering Stack DNA</span>
             </button>
           </div>
         </div>
@@ -176,44 +178,40 @@ export function AppleXdrShowcase() {
               <span className="w-1 h-1 rounded-full bg-emerald-500/60" />
             </div>
 
-            {/* Inner Display Screen with True Black Liquid Bezel */}
+            {/* Inner Display Screen with True Black Bezel */}
             <div
               ref={containerRef}
               onPointerMove={handlePointerMove}
-              onMouseEnter={() => setIsHoveringMiniLed(true)}
-              onMouseLeave={() => {
-                setIsHoveringMiniLed(false);
-                setIsDragging(false);
-              }}
+              onMouseLeave={() => setIsDragging(false)}
               className="relative w-full aspect-[16/10] min-h-[380px] sm:min-h-[480px] rounded-[1.5rem] sm:rounded-[2rem] bg-black overflow-hidden select-none cursor-crosshair border border-neutral-950"
             >
               {/* --------------------------------------------------------
-                  VIEW 1: SDR vs XDR DRAG-TO-REVEAL SLIDER
+                  VIEW 1: STANDARD DEV vs SANJAY'S ARCHITECTURE SLIDER
                  -------------------------------------------------------- */}
               {viewMode === "comparison" && (
                 <div className="relative w-full h-full">
-                  {/* Right Side: LIQUID RETINA XDR (Vibrant, 1600 nits, Sub-2ms) */}
+                  {/* Right Side: SANJAY'S ENGINEERING STANDARD */}
                   <div className="absolute inset-0 bg-[#080B14] flex flex-col justify-between p-6 sm:p-12">
-                    {/* Ambient back-glow inside XDR */}
+                    {/* Ambient back-glow inside right panel */}
                     <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-72 h-72 rounded-full bg-cobalt/25 blur-3xl pointer-events-none" />
 
                     <div className="relative z-10 flex items-center justify-between text-xs font-mono text-neutral-400">
                       <span className="text-cobalt font-bold tracking-widest flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-cobalt animate-ping" />
-                        LIQUID RETINA XDR ENGINE
+                        SANJAY'S ARCHITECTURE
                       </span>
-                      <span className="text-neutral-500 hidden sm:inline">1,600 NITS PEAK // 1,000,000:1</span>
+                      <span className="text-neutral-500 hidden sm:inline">HIGH-CONCURRENCY // ZERO-COPY</span>
                     </div>
 
                     <div className="relative z-10 max-w-md ml-auto text-right space-y-3">
                       <div className="inline-block px-3 py-1 rounded-full text-xs font-mono bg-cobalt text-white font-bold">
-                        EXTREME DYNAMIC RANGE
+                        PRODUCTION-GRADE RIGOR
                       </div>
                       <h3 className="text-2xl sm:text-4xl font-bold tracking-tight text-white drop-shadow-[0_0_25px_rgba(49,94,251,0.5)]">
-                        Zero-Copy Distributed Consensus
+                        Zero-Copy Systems & Sub-2ms Tail Latency
                       </h3>
                       <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-sans">
-                        Hardware-accelerated Raft protocol, sub-1.8ms tail latency, and 65k msg/s throughput with memory-mapped zero-copy ring buffers.
+                        Raft consensus replication, memory-mapped sequential segment ring buffers, indexed PostgreSQL queries, and 60 FPS optimistic UI state.
                       </p>
 
                       <div className="grid grid-cols-3 gap-2 pt-2 text-left">
@@ -233,29 +231,29 @@ export function AppleXdrShowcase() {
                     </div>
 
                     <div className="relative z-10 flex justify-end text-[11px] font-mono text-neutral-500">
-                      DRAG SLIDER TO REVEAL CONTRAST ➔
+                      DRAG SLIDER TO REVEAL DIFFERENCE ➔
                     </div>
                   </div>
 
-                  {/* Left Side: STANDARD DYNAMIC RANGE (Clipped with sliderPos) */}
+                  {/* Left Side: CONVENTIONAL UNOPTIMIZED DEVELOPMENT */}
                   <div
                     className="absolute inset-0 bg-[#141414] border-r-2 border-white flex flex-col justify-between p-6 sm:p-12 overflow-hidden shadow-2xl transition-all"
                     style={{ width: `${sliderPos}%` }}
                   >
                     <div className="flex items-center justify-between text-xs font-mono text-neutral-500">
-                      <span className="font-semibold tracking-wider">STANDARD DYNAMIC RANGE (SDR)</span>
-                      <span className="hidden sm:inline">400 NITS CLIPPED</span>
+                      <span className="font-semibold tracking-wider">CONVENTIONAL CODE</span>
+                      <span className="hidden sm:inline">HIGH GC LATENCY // BLOAT</span>
                     </div>
 
                     <div className="max-w-md space-y-3 opacity-75">
                       <div className="inline-block px-3 py-1 rounded-full text-xs font-mono bg-neutral-800 text-neutral-400">
-                        CONVENTIONAL SYSTEMS
+                        UNOPTIMIZED PATTERNS
                       </div>
                       <h3 className="text-2xl sm:text-4xl font-bold tracking-tight text-neutral-300">
-                        Conventional Architecture
+                        Ordinary Fragile Code
                       </h3>
                       <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed font-sans">
-                        High JVM GC pause times, redundant memory copies, unindexed queries, and 180ms network latency under heavy load.
+                        Unindexed database table scans, high JVM garbage collection pauses, multi-second loading spinners, and network dropouts causing UI desync.
                       </p>
 
                       <div className="grid grid-cols-3 gap-2 pt-2">
@@ -275,7 +273,7 @@ export function AppleXdrShowcase() {
                     </div>
 
                     <div className="text-[11px] font-mono text-neutral-600">
-                      STANDARD 8-BIT COLOR
+                      FRAGILE CLIENT-SERVER BOUNDARY
                     </div>
                   </div>
 
@@ -294,38 +292,38 @@ export function AppleXdrShowcase() {
               )}
 
               {/* --------------------------------------------------------
-                  VIEW 2: 10,000 MINI-LED LOCAL DIMMING ARRAY SIMULATOR
+                  VIEW 2: DISTRIBUTED CONCURRENCY & TELEMETRY MATRIX
                  -------------------------------------------------------- */}
-              {viewMode === "miniled" && (
+              {viewMode === "matrix" && (
                 <div className="relative w-full h-full p-6 sm:p-10 flex flex-col justify-between bg-black">
                   {/* Status header */}
                   <div className="flex items-center justify-between text-xs font-mono text-neutral-400 z-10">
                     <span className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-blue-500 animate-ping" />
-                      LOCAL DIMMING MATRIX // 2,560 ACTIVE ZONES
+                      CONCURRENCY DISPATCH MATRIX // 2,560 ACTIVE WORKERS
                     </span>
-                    <span>MOVE CURSOR TO MODULATE BACKLIGHT</span>
+                    <span>MOVE CURSOR TO ROUTE TELEMETRY PACKETS</span>
                   </div>
 
-                  {/* Mini-LED Diodes Grid Canvas Simulation */}
+                  {/* Worker Nodes Grid Simulation */}
                   <div className="absolute inset-0 grid grid-cols-24 sm:grid-cols-32 gap-1.5 p-6 opacity-90 overflow-hidden pointer-events-none">
                     {Array.from({ length: 384 }).map((_, i) => {
                       const col = i % 24;
                       const row = Math.floor(i / 24);
-                      const diodeX = (col / 24) * 100;
-                      const diodeY = (row / 16) * 100;
+                      const nodeX = (col / 24) * 100;
+                      const nodeY = (row / 16) * 100;
 
-                      const dx = diodeX - mousePos.x;
-                      const dy = diodeY - mousePos.y;
+                      const dx = nodeX - mousePos.x;
+                      const dy = nodeY - mousePos.y;
                       const dist = Math.sqrt(dx * dx + dy * dy);
 
-                      // Radial falloff: mini-LEDs near cursor shine brilliantly
+                      // Radial falloff: nodes near cursor illuminate as active workers
                       const intensity = Math.max(0, 1 - dist / 28);
                       const glowColor =
                         intensity > 0.6
                           ? "rgba(255, 255, 255, 1)"
                           : intensity > 0.2
-                          ? "rgba(49, 94, 251, 0.8)"
+                          ? "rgba(49, 94, 251, 0.85)"
                           : "rgba(30, 30, 30, 0.4)";
 
                       return (
@@ -345,34 +343,34 @@ export function AppleXdrShowcase() {
                     })}
                   </div>
 
-                  {/* Foreground Content Illuminated by Mini-LEDs */}
+                  {/* Foreground Content */}
                   <div className="relative z-10 max-w-lg space-y-3 pointer-events-none">
                     <div className="text-xs font-mono uppercase tracking-widest text-cobalt font-bold">
-                      Zero Halation // 0.0001 Nit Black Point
+                      Microsecond Packet Dispatch // Non-Blocking I/O
                     </div>
                     <h3 className="text-3xl sm:text-5xl font-bold text-white tracking-tight">
-                      Backlight on Demand.
+                      Compute on Demand.
                     </h3>
                     <p className="text-sm text-neutral-300 leading-relaxed font-sans">
-                      Mini-LEDs directly underneath active content blaze at up to 1,600 nits, while surrounding zones turn completely off for true, uncompromised black levels.
+                      Concurrency pipelines dynamically route incoming socket streams across lightweight worker threads without thread pool starvation or lock contention.
                     </p>
                   </div>
 
                   <div className="relative z-10 flex items-center justify-between text-xs font-mono text-neutral-400 border-t border-neutral-900 pt-3">
-                    <span>SPOTLIGHT POSITION: [{mousePos.x.toFixed(0)}%, {mousePos.y.toFixed(0)}%]</span>
-                    <span className="text-emerald-400 font-bold">CONTRAST: 1,000,000:1</span>
+                    <span>COORDINATOR DISPATCH: [{mousePos.x.toFixed(0)}%, {mousePos.y.toFixed(0)}%]</span>
+                    <span className="text-emerald-400 font-bold">QUORUM: HEALTHY (3/3 NODES)</span>
                   </div>
                 </div>
               )}
 
               {/* --------------------------------------------------------
-                  VIEW 3: 4-LAYER EXPLODED HARDWARE ARCHITECTURE
+                  VIEW 3: 4-LAYER ENGINEERING STACK DNA
                  -------------------------------------------------------- */}
               {viewMode === "layers" && (
                 <div className="relative w-full h-full p-6 sm:p-10 flex flex-col justify-between bg-black">
                   <div className="flex items-center justify-between text-xs font-mono text-neutral-400 z-10">
-                    <span>EXPLODED HARDWARE STACK // 4 INTEGRATED LAYERS</span>
-                    <span>SELECT LAYER TO INSPECT SPECIFICATIONS</span>
+                    <span>FULL-STACK ENGINEERING DNA // 4 CORE DOMAINS</span>
+                    <span>CLICK LAYER TO INSPECT TECHNICAL COMPETENCIES</span>
                   </div>
 
                   {/* Layer Selector Tabs */}
@@ -394,10 +392,13 @@ export function AppleXdrShowcase() {
                   </div>
 
                   {/* Active Layer Deep Dive Card */}
-                  <div className="relative z-10 p-6 rounded-2xl bg-neutral-900/90 border border-neutral-700/80 backdrop-blur-md space-y-3">
+                  <div className="relative z-10 p-6 rounded-2xl bg-neutral-900/90 border border-neutral-700/80 backdrop-blur-md space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className="text-xs font-mono uppercase text-cobalt font-bold">
-                        {layersInfo[activeLayer].subtitle}
+                      <div className="flex items-center gap-2">
+                        {layersInfo[activeLayer].icon}
+                        <span className="text-xs font-mono uppercase text-cobalt font-bold">
+                          {layersInfo[activeLayer].subtitle}
+                        </span>
                       </div>
                       <div className="text-xs font-mono text-neutral-400">
                         {layersInfo[activeLayer].metricLabel}:{" "}
@@ -412,11 +413,22 @@ export function AppleXdrShowcase() {
                     <p className="text-sm text-neutral-300 leading-relaxed font-sans">
                       {layersInfo[activeLayer].description}
                     </p>
+
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {layersInfo[activeLayer].tags.map((tag, tIdx) => (
+                        <span
+                          key={tIdx}
+                          className="px-2.5 py-0.5 rounded text-[11px] font-mono bg-black/60 border border-neutral-700 text-neutral-300"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
                   <div className="flex items-center justify-between text-xs font-mono text-neutral-500 border-t border-neutral-900 pt-2">
-                    <span>PHYSICAL ENCLOSURE: UNIBODY CHASSIS</span>
-                    <span>SURFACE FINISH: NANO-TEXTURE GLASS</span>
+                    <span>SPECIALIZATION: SYSTEMS & DISTRIBUTED APPS</span>
+                    <span>STUDENT // BUILDER // B.TECH CSE '26</span>
                   </div>
                 </div>
               )}
@@ -425,54 +437,54 @@ export function AppleXdrShowcase() {
         </InteractiveTilt>
 
         {/* ==============================================================
-            APPLE SPEC METRIC GRID (Four Monumental Statistics)
+            SANJAY'S REAL FOUR MONUMENTAL ENGINEERING STATS
            ============================================================== */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
           <div className="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800/80 space-y-2 hover:border-neutral-700 transition-colors">
             <div className="text-3xl sm:text-5xl font-mono font-bold text-white tracking-tight">
-              1,600<span className="text-lg sm:text-2xl text-cobalt">nits</span>
+              500<span className="text-lg sm:text-2xl text-cobalt">+</span>
             </div>
             <div className="text-xs font-mono uppercase text-neutral-400 font-semibold">
-              Peak Brightness
+              Algorithmic Problems
             </div>
             <p className="text-xs text-neutral-400 leading-relaxed">
-              Matched in code by 65,000 msg/s peak stream ingestion on Aether Engine.
+              Top 8% contest rating on LeetCode with mastery over graphs, trees, and dynamic programming.
             </p>
           </div>
 
           <div className="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800/80 space-y-2 hover:border-neutral-700 transition-colors">
             <div className="text-3xl sm:text-5xl font-mono font-bold text-white tracking-tight">
-              1,000,000<span className="text-lg sm:text-2xl text-cobalt">:1</span>
+              65k<span className="text-lg sm:text-2xl text-cobalt">msg/s</span>
             </div>
             <div className="text-xs font-mono uppercase text-neutral-400 font-semibold">
-              Contrast Ratio
+              Peak Broker Ingestion
             </div>
             <p className="text-xs text-neutral-400 leading-relaxed">
-              Sub-1.8ms tail latency eliminating jitter across distributed nodes.
+              Zero-copy memory-mapped append logs engineered in Go on Aether Engine.
             </p>
           </div>
 
           <div className="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800/80 space-y-2 hover:border-neutral-700 transition-colors">
             <div className="text-3xl sm:text-5xl font-mono font-bold text-white tracking-tight">
-              120<span className="text-lg sm:text-2xl text-emerald-400">Hz</span>
+              1.8<span className="text-lg sm:text-2xl text-emerald-400">ms</span>
             </div>
             <div className="text-xs font-mono uppercase text-neutral-400 font-semibold">
-              ProMotion Dynamism
+              p99 Tail Latency
             </div>
             <p className="text-xs text-neutral-400 leading-relaxed">
-              Local-first CRDT optimistic rendering locked at 60 FPS frame budgets.
+              Raft partition consensus eliminating latency jitter across distributed nodes.
             </p>
           </div>
 
           <div className="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800/80 space-y-2 hover:border-neutral-700 transition-colors">
             <div className="text-3xl sm:text-5xl font-mono font-bold text-white tracking-tight">
-              10,000<span className="text-lg sm:text-2xl text-purple-400">+</span>
+              60<span className="text-lg sm:text-2xl text-purple-400">FPS</span>
             </div>
             <div className="text-xs font-mono uppercase text-neutral-400 font-semibold">
-              Mini-LED Backlights
+              Locked UI Frame Budget
             </div>
             <p className="text-xs text-neutral-400 leading-relaxed">
-              500+ algorithmic problems solved with meticulous attention to detail.
+              Local-first CRDT optimistic rendering and zero-latency client interfaces.
             </p>
           </div>
         </div>

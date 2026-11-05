@@ -18,7 +18,7 @@ export function Navigation({ onOpenCommandMenu }: NavigationProps) {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
 
-      const sections = ["work", "xdr", "about", "skills", "experience", "focus", "contact"];
+      const sections = ["work", "architecture", "about", "skills", "experience", "focus", "contact"];
       const scrollPosition = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -40,7 +40,7 @@ export function Navigation({ onOpenCommandMenu }: NavigationProps) {
 
   const navLinks = [
     { name: "Work", href: "#work", id: "work" },
-    { name: "XDR Display", href: "#xdr", id: "xdr" },
+    { name: "Architecture", href: "#architecture", id: "architecture" },
     { name: "About", href: "#about", id: "about" },
     { name: "Skills", href: "#skills", id: "skills" },
     { name: "Experience", href: "#experience", id: "experience" },

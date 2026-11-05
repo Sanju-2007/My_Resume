@@ -59,11 +59,11 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
       },
     },
     {
-      label: "Explore: Liquid Retina XDR Showcase (Dynamic Display)",
+      label: "Explore: Systems Architecture & Performance Standards",
       category: "Interactive",
       icon: <Sparkles className="w-4 h-4 text-cobalt" />,
       action: () => {
-        window.location.hash = "#xdr";
+        window.location.hash = "#architecture";
         onClose();
       },
     },
