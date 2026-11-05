@@ -47,6 +47,10 @@ const config: Config = {
         float: "0 20px 40px -15px rgba(23, 23, 23, 0.08)",
         "dark-card": "0 8px 30px rgba(0, 0, 0, 0.4)",
       },
+      gridTemplateColumns: {
+        '24': 'repeat(24, minmax(0, 1fr))',
+        '32': 'repeat(32, minmax(0, 1fr))',
+      },
       letterSpacing: {
         tightest: "-0.04em",
         tighter: "-0.025em",

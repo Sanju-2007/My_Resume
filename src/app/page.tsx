@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { SelectedWork } from "@/components/SelectedWork";
+import { AppleXdrShowcase } from "@/components/AppleXdrShowcase";
 import { About } from "@/components/About";
 import { TechnicalSkills } from "@/components/TechnicalSkills";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
@@ -38,6 +39,9 @@ export default function Home() {
 
       {/* Signature Work Section */}
       <SelectedWork />
+
+      {/* Apple Liquid Retina XDR Dynamic Showcase */}
+      <AppleXdrShowcase />
 
       {/* Editorial About Section */}
       <About />

@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { portfolioData, Project } from "@/data/portfolio";
 import { ProjectModal } from "./ProjectModal";
+import { InteractiveTilt } from "./InteractiveTilt";
 
 export function SelectedWork() {
   const { projects } = portfolioData;
@@ -59,9 +60,10 @@ export function SelectedWork() {
         {(() => {
           const aether = projects.find((p) => p.id === "aether-broker") || projects[0];
           return (
-            <div className="relative rounded-3xl border border-ink-border/80 bg-canvas-pure shadow-card overflow-hidden">
-              {/* Top Accent Strip */}
-              <div className="h-1.5 w-full bg-gradient-to-r from-cobalt via-indigo-500 to-sky-400" />
+            <InteractiveTilt maxTilt={3} glareOpacity={0.12} className="w-full">
+              <div className="relative rounded-3xl border border-ink-border/80 bg-canvas-pure shadow-card overflow-hidden">
+                {/* Top Accent Strip */}
+                <div className="h-1.5 w-full bg-gradient-to-r from-cobalt via-indigo-500 to-sky-400" />
 
               <div className="p-6 sm:p-10 lg:p-12 space-y-10">
                 {/* Meta & Category Header */}
@@ -332,7 +334,8 @@ export function SelectedWork() {
                 </div>
               </div>
             </div>
-          );
+          </InteractiveTilt>
+        );
         })()}
 
         {/* ==============================================================
@@ -343,8 +346,9 @@ export function SelectedWork() {
           return (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               {/* Left Column: UI Mockup Preview (7 cols) */}
-              <div className="lg:col-span-7 order-2 lg:order-1 rounded-2xl border border-ink-border/80 bg-canvas-pure shadow-card overflow-hidden">
-                {/* Mock Browser/App Header */}
+              <InteractiveTilt maxTilt={5} glareOpacity={0.16} className="lg:col-span-7 order-2 lg:order-1">
+                <div className="rounded-2xl border border-ink-border/80 bg-canvas-pure shadow-card overflow-hidden">
+                  {/* Mock Browser/App Header */}
                 <div className="flex items-center justify-between px-4 py-3 border-b border-ink-border/60 bg-canvas-subtle/60">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-rose-400" />
@@ -438,6 +442,7 @@ export function SelectedWork() {
                   </div>
                 </div>
               </div>
+            </InteractiveTilt>
 
               {/* Right Column: Editorial Narrative & Strategy (5 cols) */}
               <div className="lg:col-span-5 order-1 lg:order-2 space-y-6">
@@ -519,8 +524,9 @@ export function SelectedWork() {
         {(() => {
           const pulse = projects.find((p) => p.id === "pulse-telemetry") || projects[2];
           return (
-            <div className="rounded-3xl bg-dark-canvas text-white p-6 sm:p-10 lg:p-12 border border-dark-border shadow-dark-card space-y-10 relative overflow-hidden">
-              {/* Subtle Dark Grid Lines */}
+            <InteractiveTilt maxTilt={3} glareOpacity={0.18} className="w-full">
+              <div className="rounded-3xl bg-dark-canvas text-white p-6 sm:p-10 lg:p-12 border border-dark-border shadow-dark-card space-y-10 relative overflow-hidden">
+                {/* Subtle Dark Grid Lines */}
               <div className="absolute inset-0 pointer-events-none bg-grid-dark opacity-40" />
 
               {/* Header */}
@@ -661,7 +667,8 @@ export function SelectedWork() {
                 </div>
               </div>
             </div>
-          );
+          </InteractiveTilt>
+        );
         })()}
 
         {/* ==============================================================
@@ -670,7 +677,8 @@ export function SelectedWork() {
         {(() => {
           const cognito = projects.find((p) => p.id === "cognito-research") || projects[3];
           return (
-            <div className="rounded-2xl border border-ink-border/80 bg-canvas-pure p-6 sm:p-10 shadow-card">
+            <InteractiveTilt maxTilt={3} glareOpacity={0.12} className="w-full">
+              <div className="rounded-2xl border border-ink-border/80 bg-canvas-pure p-6 sm:p-10 shadow-card">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 {/* Left Info (6 cols) */}
                 <div className="lg:col-span-6 space-y-5">
@@ -773,7 +781,8 @@ export function SelectedWork() {
                 </div>
               </div>
             </div>
-          );
+          </InteractiveTilt>
+        );
         })()}
       </div>
 

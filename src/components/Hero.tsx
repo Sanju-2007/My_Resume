@@ -4,6 +4,7 @@ import React from "react";
 import { ArrowDown, ArrowUpRight, Download, Terminal, Layers } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import { AbstractGraphic } from "./AbstractGraphic";
+import { InteractiveTilt } from "./InteractiveTilt";
 
 export function Hero() {
   const { personal } = portfolioData;
@@ -102,21 +103,23 @@ export function Hero() {
 
         {/* Right Column: Abstract Systems Graphic & Architectural Card (5 cols) */}
         <div className="lg:col-span-5 relative w-full flex flex-col items-center justify-center">
-          <div className="w-full relative">
-            <AbstractGraphic />
+          <InteractiveTilt maxTilt={6} glareOpacity={0.16} className="w-full">
+            <div className="w-full relative">
+              <AbstractGraphic />
 
-            {/* Subtle decorative code snippet tag */}
-            <div className="mt-3 flex items-center justify-between text-[11px] font-mono text-ink-muted px-2">
-              <span className="flex items-center gap-1.5">
-                <Terminal className="w-3 h-3 text-cobalt" />
-                <span>raft.election_timeout = 150ms</span>
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Layers className="w-3 h-3 text-ink-secondary" />
-                <span>zero_copy: enabled</span>
-              </span>
+              {/* Subtle decorative code snippet tag */}
+              <div className="mt-3 flex items-center justify-between text-[11px] font-mono text-ink-muted px-2">
+                <span className="flex items-center gap-1.5">
+                  <Terminal className="w-3 h-3 text-cobalt" />
+                  <span>raft.election_timeout = 150ms</span>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Layers className="w-3 h-3 text-ink-secondary" />
+                  <span>zero_copy: enabled</span>
+                </span>
+              </div>
             </div>
-          </div>
+          </InteractiveTilt>
         </div>
       </div>
 

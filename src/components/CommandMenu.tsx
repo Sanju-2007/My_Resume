@@ -13,7 +13,8 @@ import {
   ExternalLink,
   Download,
   Copy,
-  Check
+  Check,
+  Sparkles
 } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 
@@ -54,6 +55,15 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
       icon: <Briefcase className="w-4 h-4 text-cobalt" />,
       action: () => {
         window.location.hash = "#work";
+        onClose();
+      },
+    },
+    {
+      label: "Explore: Liquid Retina XDR Showcase (Dynamic Display)",
+      category: "Interactive",
+      icon: <Sparkles className="w-4 h-4 text-cobalt" />,
+      action: () => {
+        window.location.hash = "#xdr";
         onClose();
       },
     },
