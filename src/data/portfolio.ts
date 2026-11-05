@@ -135,8 +135,8 @@ export const portfolioData: PortfolioData = {
     socialLinks: [
       {
         name: "GitHub",
-        url: "https://github.com/sanjayvarma",
-        handle: "sanjayvarma",
+        url: "https://github.com/Sanju-2007",
+        handle: "Sanju-2007",
         icon: "github",
       },
       {
@@ -232,7 +232,7 @@ export const portfolioData: PortfolioData = {
         "Lightweight binary TCP framing with automatic CRC32 integrity validation",
         "Web-based telemetry UI displaying real-time stream lag, partition metrics, and cluster topologies",
       ],
-      githubUrl: "https://github.com/sanjayvarma/aether-broker",
+      githubUrl: "https://github.com/Sanju-2007/aether-broker",
       liveUrl: "https://aether-stream.dev",
       architectureDetails: {
         components: ["Client Driver", "TCP Protocol Parser", "Raft Consensus Node", "Segment Storage Engine", "WebSocket Observer"],
@@ -267,7 +267,7 @@ export const portfolioData: PortfolioData = {
         "Bidirectional real-time sync with peer presence cursors via WebSocket channels",
         "Infinite canvas sprint roadmap with fluid pan, zoom, and multi-issue dependency links",
       ],
-      githubUrl: "https://github.com/sanjayvarma/linearis-workspace",
+      githubUrl: "https://github.com/Sanju-2007/linearis-workspace",
       liveUrl: "https://linearis-workspace.vercel.app",
     },
     {
@@ -298,7 +298,7 @@ export const portfolioData: PortfolioData = {
         "Configurable multi-channel alert dispatching to Discord, Slack, and PagerDuty webhooks",
         "Interactive histogram and latency heatmaps rendered with hardware acceleration",
       ],
-      githubUrl: "https://github.com/sanjayvarma/pulse-telemetry",
+      githubUrl: "https://github.com/Sanju-2007/pulse-telemetry",
       liveUrl: "https://pulse-apm.dev",
     },
     {
@@ -329,7 +329,7 @@ export const portfolioData: PortfolioData = {
         "Chain-of-thought verification engine that flags ungrounded statements before displaying output",
         "Exportable synthesis dossiers in Markdown, LaTeX, and clean styled PDF formats",
       ],
-      githubUrl: "https://github.com/sanjayvarma/cognito-research",
+      githubUrl: "https://github.com/Sanju-2007/cognito-research",
       liveUrl: "https://cognito-research.dev",
     },
   ],
