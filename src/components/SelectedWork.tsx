@@ -389,7 +389,7 @@ export function SelectedWork() {
                     </div>
 
                     <div className="text-[11px] font-mono text-ink-muted">
-                      10,000+ items @ 60 FPS
+                      10,000+ items // Sub-10ms UI latency
                     </div>
                   </div>
 

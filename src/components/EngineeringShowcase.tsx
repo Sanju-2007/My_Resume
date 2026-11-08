@@ -13,11 +13,12 @@ import {
   Database,
   Terminal,
   ShieldCheck,
-  CheckCircle2
+  CheckCircle2,
+  GitBranch
 } from "lucide-react";
 import { InteractiveTilt } from "./InteractiveTilt";
 
-export function AppleXdrShowcase() {
+export function EngineeringShowcase() {
   // Slider state for Standard vs Optimized (percentage from 0 to 100)
   const [sliderPos, setSliderPos] = useState(55);
   const [isDragging, setIsDragging] = useState(false);
@@ -64,7 +65,7 @@ export function AppleXdrShowcase() {
       subtitle: "High-throughput engines engineered in Go & C++",
       description: "Low-level systems architecture utilizing goroutines, sync primitives, zero-copy memory-mapped I/O, and Raft consensus protocols to achieve sub-2ms tail latencies.",
       metric: "65,000 msg/s",
-      metricLabel: "Peak Single-Node Ingestion",
+      metricLabel: "Peak Ingestion Throughput",
       icon: <Cpu className="w-4 h-4 text-cobalt" />,
       tags: ["Go (Golang)", "Zero-Copy MMap", "Raft Consensus", "TCP Sockets"],
     },
@@ -74,17 +75,17 @@ export function AppleXdrShowcase() {
       subtitle: "Relational modeling, caching tiers, and query optimization",
       description: "Architecting resilient data layers with PostgreSQL ACID guarantees, Redis in-memory pub/sub caching, and partitioned key-value stores with zero downtime.",
       metric: "Sub-2ms",
-      metricLabel: "Cluster Query Response",
+      metricLabel: "Cluster Query Latency",
       icon: <Database className="w-4 h-4 text-emerald-400" />,
       tags: ["PostgreSQL", "Redis", "EXPLAIN ANALYZE", "Vector DBs"],
     },
     {
       id: 2,
-      title: "High-Framerate Web Engineering",
+      title: "Modern Web Engineering",
       subtitle: "Local-first apps and precision digital interfaces",
-      description: "Crafting client-side experiences using Next.js 15, React 19, TypeScript, and Tailwind CSS. Built with optimistic UI mutations, CRDT synchronization, and a locked 60 FPS frame budget.",
-      metric: "60 FPS",
-      metricLabel: "Fluid UI Frame Budget",
+      description: "Crafting client-side experiences using Next.js 15, React 19, TypeScript, and Tailwind CSS. Built with optimistic state mutations and CRDT data synchronization.",
+      metric: "100%",
+      metricLabel: "Type Safety & Offline Sync",
       icon: <Code2 className="w-4 h-4 text-purple-400" />,
       tags: ["Next.js 15", "TypeScript", "Tailwind CSS", "CRDTs"],
     },
@@ -94,7 +95,7 @@ export function AppleXdrShowcase() {
       subtitle: "Advanced data structures and competitive problem solving",
       description: "Deep theoretical grounding across graph algorithms, dynamic programming, and complexity optimization. Consistently maintaining top-percentile rating across 500+ solved algorithmic problems.",
       metric: "500+",
-      metricLabel: "Algorithmic Problems Solved",
+      metricLabel: "Problems Solved",
       icon: <ShieldCheck className="w-4 h-4 text-rose-400" />,
       tags: ["Graphs & Trees", "Dynamic Programming", "LeetCode", "Codeforces"],
     },
@@ -118,11 +119,11 @@ export function AppleXdrShowcase() {
           </h2>
 
           <p className="text-xl sm:text-2xl font-serif italic text-neutral-400 font-normal leading-relaxed">
-            From low-level distributed systems to fluid, pixel-precise digital experiences.
+            From low-level distributed systems to intuitive, fault-tolerant software.
           </p>
 
           <p className="text-sm sm:text-base text-neutral-400 max-w-2xl mx-auto leading-relaxed pt-2">
-            I don’t just write code—I architect resilient digital systems where zero-copy data pipelines, disciplined state models, and delightful user interaction converge.
+            I don’t just write code—I architect resilient digital systems where zero-copy data pipelines, disciplined state models, and thoughtful user interaction converge.
           </p>
 
           {/* Interactive Mode Toggle Bar */}
@@ -166,24 +167,37 @@ export function AppleXdrShowcase() {
         </div>
 
         {/* ==============================================================
-            APPLE HARDWARE DISPLAY FRAME CONTAINER
+            INTERACTIVE SYSTEMS CONSOLE WORKBENCH
            ============================================================== */}
-        <InteractiveTilt maxTilt={4} glareOpacity={0.25} className="max-w-5xl mx-auto">
-          <div className="relative rounded-[2rem] sm:rounded-[2.5rem] p-3 sm:p-4 bg-gradient-to-b from-neutral-700 via-neutral-800 to-neutral-900 shadow-2xl border border-neutral-700/60 ring-1 ring-white/10">
-            {/* Top Apple Camera Notch */}
-            <div className="absolute top-3 sm:top-4 left-1/2 -translate-x-1/2 z-40 flex items-center justify-center gap-2 w-32 sm:w-40 h-5 sm:h-6 bg-black rounded-b-xl border-x border-b border-neutral-800">
-              <span className="w-2 h-2 rounded-full bg-neutral-900 border border-neutral-700 flex items-center justify-center">
-                <span className="w-0.5 h-0.5 rounded-full bg-blue-500/80" />
-              </span>
-              <span className="w-1 h-1 rounded-full bg-emerald-500/60" />
+        <InteractiveTilt maxTilt={3} glareOpacity={0.15} className="max-w-5xl mx-auto">
+          <div className="relative rounded-2xl bg-neutral-950 border border-neutral-800 shadow-2xl overflow-hidden ring-1 ring-white/10">
+            {/* Systems Workbench Control Header */}
+            <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 bg-neutral-900/80 border-b border-neutral-800/90 text-xs font-mono">
+              <div className="flex items-center gap-2.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                <span className="ml-2 text-neutral-300 font-medium hidden sm:inline">
+                  sanjay.engineering // architecture.runtime
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3 text-neutral-400 text-[11px]">
+                <span className="flex items-center gap-1.5 text-emerald-400">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                  CONSENSUS: QUORUM_REACHED
+                </span>
+                <span className="hidden md:inline text-neutral-600">•</span>
+                <span className="hidden md:inline">TAIL_LATENCY: 1.8ms</span>
+              </div>
             </div>
 
-            {/* Inner Display Screen with True Black Bezel */}
+            {/* Interactive Workbench Viewport */}
             <div
               ref={containerRef}
               onPointerMove={handlePointerMove}
               onMouseLeave={() => setIsDragging(false)}
-              className="relative w-full aspect-[16/10] min-h-[380px] sm:min-h-[480px] rounded-[1.5rem] sm:rounded-[2rem] bg-black overflow-hidden select-none cursor-crosshair border border-neutral-950"
+              className="relative w-full aspect-[16/10] min-h-[380px] sm:min-h-[460px] bg-black overflow-hidden select-none cursor-crosshair"
             >
               {/* --------------------------------------------------------
                   VIEW 1: STANDARD DEV vs SANJAY'S ARCHITECTURE SLIDER
@@ -211,7 +225,7 @@ export function AppleXdrShowcase() {
                         Zero-Copy Systems & Sub-2ms Tail Latency
                       </h3>
                       <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-sans">
-                        Raft consensus replication, memory-mapped sequential segment ring buffers, indexed PostgreSQL queries, and 60 FPS optimistic UI state.
+                        Raft consensus replication, memory-mapped sequential segment ring buffers, indexed database queries, and local-first CRDT state sync.
                       </p>
 
                       <div className="grid grid-cols-3 gap-2 pt-2 text-left">
@@ -224,14 +238,14 @@ export function AppleXdrShowcase() {
                           <div className="text-base font-mono font-bold text-white">&lt;24 MB</div>
                         </div>
                         <div className="p-2.5 rounded-lg bg-neutral-900/80 border border-cobalt/40 backdrop-blur-sm">
-                          <div className="text-[10px] font-mono text-cobalt uppercase">UI FPS</div>
-                          <div className="text-base font-mono font-bold text-emerald-400">60 Locked</div>
+                          <div className="text-[10px] font-mono text-cobalt uppercase">Resilience</div>
+                          <div className="text-base font-mono font-bold text-emerald-400">3/3 Quorum</div>
                         </div>
                       </div>
                     </div>
 
                     <div className="relative z-10 flex justify-end text-[11px] font-mono text-neutral-500">
-                      DRAG SLIDER TO REVEAL DIFFERENCE ➔
+                      DRAG SLIDER TO REVEAL CONTRAST ➔
                     </div>
                   </div>
 
@@ -242,7 +256,7 @@ export function AppleXdrShowcase() {
                   >
                     <div className="flex items-center justify-between text-xs font-mono text-neutral-500">
                       <span className="font-semibold tracking-wider">CONVENTIONAL CODE</span>
-                      <span className="hidden sm:inline">HIGH GC LATENCY // BLOAT</span>
+                      <span className="hidden sm:inline">HIGH GC PAUSES // BLOAT</span>
                     </div>
 
                     <div className="max-w-md space-y-3 opacity-75">
@@ -253,7 +267,7 @@ export function AppleXdrShowcase() {
                         Ordinary Fragile Code
                       </h3>
                       <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed font-sans">
-                        Unindexed database table scans, high JVM garbage collection pauses, multi-second loading spinners, and network dropouts causing UI desync.
+                        Unindexed database table scans, heavy garbage collection pauses, blocking event loops, and network dropouts causing UI state desync.
                       </p>
 
                       <div className="grid grid-cols-3 gap-2 pt-2">
@@ -266,14 +280,14 @@ export function AppleXdrShowcase() {
                           <div className="text-base font-mono font-bold text-neutral-400">450 MB</div>
                         </div>
                         <div className="p-2.5 rounded-lg bg-neutral-900/60 border border-neutral-800">
-                          <div className="text-[10px] font-mono text-neutral-500 uppercase">UI FPS</div>
-                          <div className="text-base font-mono font-bold text-rose-400">28 Drops</div>
+                          <div className="text-[10px] font-mono text-neutral-500 uppercase">Resilience</div>
+                          <div className="text-base font-mono font-bold text-rose-400">Fragile SPOF</div>
                         </div>
                       </div>
                     </div>
 
                     <div className="text-[11px] font-mono text-neutral-600">
-                      FRAGILE CLIENT-SERVER BOUNDARY
+                      HIGH NETWORK OVERHEAD
                     </div>
                   </div>
 
@@ -352,7 +366,7 @@ export function AppleXdrShowcase() {
                       Compute on Demand.
                     </h3>
                     <p className="text-sm text-neutral-300 leading-relaxed font-sans">
-                      Concurrency pipelines dynamically route incoming socket streams across lightweight worker threads without thread pool starvation or lock contention.
+                      Concurrency pipelines dynamically route incoming socket streams across lightweight worker pools without thread pool starvation or lock contention.
                     </p>
                   </div>
 
@@ -478,13 +492,13 @@ export function AppleXdrShowcase() {
 
           <div className="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800/80 space-y-2 hover:border-neutral-700 transition-colors">
             <div className="text-3xl sm:text-5xl font-mono font-bold text-white tracking-tight">
-              60<span className="text-lg sm:text-2xl text-purple-400">FPS</span>
+              100<span className="text-lg sm:text-2xl text-purple-400">%</span>
             </div>
             <div className="text-xs font-mono uppercase text-neutral-400 font-semibold">
-              Locked UI Frame Budget
+              Type-Safe & Resilient
             </div>
             <p className="text-xs text-neutral-400 leading-relaxed">
-              Local-first CRDT optimistic rendering and zero-latency client interfaces.
+              Strict end-to-end typing, local-first state machines, and high test coverage.
             </p>
           </div>
         </div>

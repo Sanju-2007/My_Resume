@@ -254,10 +254,10 @@ export const portfolioData: PortfolioData = {
       solution:
         "Constructed a blistering-fast task management workspace modeled after elite developer tooling. Operates with local SQLite in-browser storage, CRDT conflict resolution, and immediate optimistic UI renders.",
       contribution:
-        "Designed the reactive state pipeline, keyboard command palette engine (Cmd+K), virtualized board rendering capable of handling 10,000+ items at 60fps, and end-to-end synchronization engine.",
+        "Designed the reactive state pipeline, keyboard command palette engine (Cmd+K), virtualized board rendering capable of handling 10,000+ items with sub-12ms input latency, and end-to-end synchronization engine.",
       technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion", "IndexedDB", "WebSockets", "Zustand"],
       metrics: [
-        { label: "Frame Rate", value: "60 FPS locked" },
+        { label: "Sync Latency", value: "< 4 ms local" },
         { label: "Input Response", value: "< 12 ms" },
         { label: "Offline First", value: "100% resilient" },
       ],
