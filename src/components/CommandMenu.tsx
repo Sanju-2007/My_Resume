@@ -113,7 +113,7 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
       },
     },
     {
-      label: "Copy Email: gsksanjayvarma@gmail.com",
+      label: "Copy Email: gsksanjayvarma777@gmail.com",
       category: "Quick Actions",
       icon: copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4 text-ink-secondary" />,
       action: () => {
@@ -135,20 +135,20 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
       },
     },
     {
-      label: "Open GitHub Profile",
+      label: "Open GitHub Profile (Sanju-2007)",
       category: "External",
       icon: <ExternalLink className="w-4 h-4 text-ink-muted" />,
       action: () => {
-        window.open("https://github.com/sanjayvarma", "_blank");
+        window.open("https://github.com/Sanju-2007", "_blank");
         onClose();
       },
     },
     {
-      label: "Open LinkedIn Profile",
+      label: "Open LinkedIn Profile (G S K Sanjay Varma)",
       category: "External",
       icon: <ExternalLink className="w-4 h-4 text-ink-muted" />,
       action: () => {
-        window.open("https://linkedin.com/in/sanjayvarma", "_blank");
+        window.open("https://www.linkedin.com/in/g-s-k-sanjay-varma", "_blank");
         onClose();
       },
     },

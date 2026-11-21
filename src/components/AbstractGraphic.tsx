@@ -33,10 +33,18 @@ export function AbstractGraphic() {
 
     window.addEventListener("resize", handleResize);
 
-    // Node graph representing distributed nodes
+    // Node graph representing distributed nodes & AI pipelines
     const nodeCount = 14;
     const nodes: Node[] = [];
-    const labels = ["raft-node-0", "raft-node-1", "mmap-log", "crdt-sync", "wasm-worker", "edge-cache", "p99-probe"];
+    const labels = [
+      "attendify-onnx",
+      "insightface-512d",
+      "fastapi-worker",
+      "optilign-fsm",
+      "sony-sync-engine",
+      "webrtc-sfu",
+      "hindsight-rag"
+    ];
 
     for (let i = 0; i < nodeCount; i++) {
       nodes.push({
@@ -188,11 +196,12 @@ export function AbstractGraphic() {
       <div className="flex items-center justify-between border-b border-ink-border/50 pb-3 mb-2 px-2 text-xs font-mono text-ink-secondary">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span>system.topology.active</span>
+          <span>inference.pipeline.active</span>
         </div>
         <div className="flex items-center gap-3 text-[11px] text-ink-muted">
-          <span>LATENCY: 1.4ms</span>
-          <span>RAFT: QUORUM_OK</span>
+          <span>ONNX: &lt;12ms</span>
+          <span>FSM: 18nrad</span>
+          <span>SYNC: &lt;150ms</span>
         </div>
       </div>
 
@@ -202,7 +211,7 @@ export function AbstractGraphic() {
         
         {/* Subtle decorative technical overlay badge */}
         <div className="absolute bottom-2 left-2 bg-canvas/90 backdrop-blur-sm border border-ink-border/60 rounded px-2.5 py-1 text-[10px] font-mono text-ink-secondary">
-          SYS_ARCH: DISTRIBUTED_CONCURRENCY
+          SYS_ARCH: AI_VISION_PIPELINE // PAT_TRACKING
         </div>
       </div>
     </div>

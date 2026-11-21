@@ -13,7 +13,8 @@ import {
   Twitter, 
   Sparkles,
   Clock,
-  MapPin
+  MapPin,
+  Phone
 } from "lucide-react";
 
 export function ContactSection() {
@@ -44,7 +45,7 @@ export function ContactSection() {
             I'm always interested in meaningful projects, thoughtful conversations, and opportunities to build something useful.
           </p>
 
-          {/* Email Action Block with Copy Button */}
+          {/* Email & Phone Action Block with Copy Button */}
           <div className="pt-4 flex flex-wrap items-center gap-4">
             <a
               href={`mailto:${personal.email}`}
@@ -53,6 +54,14 @@ export function ContactSection() {
               <Mail className="w-4 h-4" />
               <span>{personal.email}</span>
               <ArrowUpRight className="w-4 h-4 opacity-75" />
+            </a>
+
+            <a
+              href={`tel:${personal.phone}`}
+              className="inline-flex items-center gap-2 px-5 py-4 rounded-full bg-canvas-pure border border-ink-border hover:border-ink-secondary/50 text-ink-primary text-sm font-medium tracking-tight transition-all duration-200 hover:bg-canvas-subtle hover:-translate-y-0.5 shadow-xs"
+            >
+              <Phone className="w-4 h-4 text-emerald-600" />
+              <span className="font-mono text-xs">{personal.phone}</span>
             </a>
 
             <button
@@ -118,7 +127,7 @@ export function ContactSection() {
                   Available for Hire / Internships
                 </div>
                 <div className="text-xs text-ink-secondary">
-                  Targeting Summer 2025 / Fall Roles in Software Engineering
+                  Targeting Software Engineering & AI Internships
                 </div>
               </div>
 
@@ -143,7 +152,7 @@ export function ContactSection() {
             <div className="pt-4 border-t border-ink-border/60">
               <a
                 href={personal.resumeUrl}
-                download="Sanjay_Varma_Resume.pdf"
+                download="Gurijala_Sri_Krishna_Sanjay_Varma_Resume.pdf"
                 className="flex items-center justify-center gap-2 w-full py-3 bg-canvas-subtle hover:bg-canvas-elevated text-ink-primary text-xs font-mono uppercase tracking-wider rounded-xl border border-ink-border/80 transition-colors"
               >
                 <Download className="w-3.5 h-3.5 text-ink-secondary" />

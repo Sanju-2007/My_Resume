@@ -40,7 +40,7 @@ export function Navigation({ onOpenCommandMenu }: NavigationProps) {
 
   const navLinks = [
     { name: "Work", href: "#work", id: "work" },
-    { name: "Architecture", href: "#architecture", id: "architecture" },
+    { name: "Systems", href: "#architecture", id: "architecture" },
     { name: "About", href: "#about", id: "about" },
     { name: "Skills", href: "#skills", id: "skills" },
     { name: "Experience", href: "#experience", id: "experience" },

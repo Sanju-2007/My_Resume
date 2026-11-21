@@ -55,16 +55,16 @@ export function Hero() {
           {/* Quick Metrics Bar */}
           <div className="grid grid-cols-3 gap-6 pt-2 pb-2 border-y border-ink-border/60 w-full max-w-lg">
             <div>
-              <div className="text-xl sm:text-2xl font-bold font-mono text-ink-primary">B.Tech</div>
-              <div className="text-[11px] font-mono text-ink-muted uppercase">Computer Science</div>
+              <div className="text-xl sm:text-2xl font-bold font-mono text-ink-primary">JNTUH</div>
+              <div className="text-[11px] font-mono text-ink-muted uppercase">B.Tech CSE '28</div>
             </div>
             <div>
-              <div className="text-xl sm:text-2xl font-bold font-mono text-ink-primary">500+</div>
-              <div className="text-[11px] font-mono text-ink-muted uppercase">LeetCode Solved</div>
+              <div className="text-xl sm:text-2xl font-bold font-mono text-ink-primary">8.025</div>
+              <div className="text-[11px] font-mono text-ink-muted uppercase">Current CGPA</div>
             </div>
             <div>
-              <div className="text-xl sm:text-2xl font-bold font-mono text-cobalt">1.8ms</div>
-              <div className="text-[11px] font-mono text-ink-muted uppercase">p99 Broker Tail</div>
+              <div className="text-xl sm:text-2xl font-bold font-mono text-cobalt">&lt; 12s</div>
+              <div className="text-[11px] font-mono text-ink-muted uppercase">Attendify 50+ Faces</div>
             </div>
           </div>
 
@@ -80,7 +80,7 @@ export function Hero() {
 
             <a
               href={personal.resumeUrl}
-              download="Sanjay_Varma_Resume.pdf"
+              download="Gurijala_Sri_Krishna_Sanjay_Varma_Resume.pdf"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-canvas-pure border border-ink-border hover:border-ink-secondary/50 text-ink-primary text-sm font-medium tracking-tight transition-all duration-200 hover:bg-canvas-subtle hover:-translate-y-0.5 shadow-xs"
             >
               <Download className="w-4 h-4 text-ink-secondary" />
@@ -89,15 +89,17 @@ export function Hero() {
           </div>
 
           {/* Tech stack ticker / badges */}
-          <div className="flex items-center gap-2 pt-2 text-xs text-ink-muted font-mono">
-            <span className="text-[11px] text-ink-secondary uppercase">Focus:</span>
-            <span>Distributed Systems</span>
+          <div className="flex flex-wrap items-center gap-2 pt-2 text-xs text-ink-muted font-mono">
+            <span className="text-[11px] text-ink-secondary uppercase font-semibold">Focus:</span>
+            <span>AI & Computer Vision</span>
             <span className="text-ink-border">•</span>
-            <span>TypeScript</span>
+            <span>FastAPI & Python</span>
             <span className="text-ink-border">•</span>
-            <span>Go</span>
+            <span>Next.js & React</span>
             <span className="text-ink-border">•</span>
-            <span>Next.js 15</span>
+            <span>C++ & DSA</span>
+            <span className="text-ink-border">•</span>
+            <span>Free-Space Optics (OptiLign)</span>
           </div>
         </div>
 
@@ -111,11 +113,11 @@ export function Hero() {
               <div className="mt-3 flex items-center justify-between text-[11px] font-mono text-ink-muted px-2">
                 <span className="flex items-center gap-1.5">
                   <Terminal className="w-3 h-3 text-cobalt" />
-                  <span>raft.election_timeout = 150ms</span>
+                  <span>retinaface.detect_multi()</span>
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Layers className="w-3 h-3 text-ink-secondary" />
-                  <span>zero_copy: enabled</span>
+                  <span>insightface.512d: ok</span>
                 </span>
               </div>
             </div>

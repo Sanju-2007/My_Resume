@@ -14,7 +14,8 @@ import {
   Terminal,
   ShieldCheck,
   CheckCircle2,
-  GitBranch
+  GitBranch,
+  Target
 } from "lucide-react";
 import { InteractiveTilt } from "./InteractiveTilt";
 
@@ -61,43 +62,43 @@ export function EngineeringShowcase() {
   const layersInfo = [
     {
       id: 0,
-      title: "Core Systems & Concurrency",
-      subtitle: "High-throughput engines engineered in Go & C++",
-      description: "Low-level systems architecture utilizing goroutines, sync primitives, zero-copy memory-mapped I/O, and Raft consensus protocols to achieve sub-2ms tail latencies.",
-      metric: "65,000 msg/s",
-      metricLabel: "Peak Ingestion Throughput",
+      title: "Computer Vision & Facial Recognition",
+      subtitle: "High-throughput biometric pipelines (Attendify)",
+      description: "Developing FastAPI microservices integrating RetinaFace multi-face detection, InsightFace 512-dimensional embedding extraction, and ONNX Runtime acceleration to process 50+ students in under 12 seconds.",
+      metric: "< 12 sec",
+      metricLabel: "50+ Students Verified",
       icon: <Cpu className="w-4 h-4 text-cobalt" />,
-      tags: ["Go (Golang)", "Zero-Copy MMap", "Raft Consensus", "TCP Sockets"],
+      tags: ["RetinaFace", "InsightFace", "OpenCV", "ONNX Runtime", "FastAPI"],
     },
     {
       id: 1,
-      title: "Distributed Data & Storage",
-      subtitle: "Relational modeling, caching tiers, and query optimization",
-      description: "Architecting resilient data layers with PostgreSQL ACID guarantees, Redis in-memory pub/sub caching, and partitioned key-value stores with zero downtime.",
-      metric: "Sub-2ms",
-      metricLabel: "Cluster Query Latency",
-      icon: <Database className="w-4 h-4 text-emerald-400" />,
-      tags: ["PostgreSQL", "Redis", "EXPLAIN ANALYZE", "Vector DBs"],
+      title: "Free-Space Optical (PAT) Simulation",
+      subtitle: "Physics-based optical beam tracking platform (OptiLign)",
+      description: "Architecting autonomous coarse-to-fine virtual camera tracking algorithms delivering 18–22 nano-radian pointing accuracy under severe atmospheric turbulence, verified by 337 passing test suites.",
+      metric: "18–22 nrad",
+      metricLabel: "FSM Pointing Accuracy",
+      icon: <Target className="w-4 h-4 text-emerald-400" />,
+      tags: ["Python 3.12+", "NumPy", "Physics Modeling", "Mypy Strict", "Pytest"],
     },
     {
       id: 2,
-      title: "Modern Web Engineering",
-      subtitle: "Local-first apps and precision digital interfaces",
-      description: "Crafting client-side experiences using Next.js 15, React 19, TypeScript, and Tailwind CSS. Built with optimistic state mutations and CRDT data synchronization.",
-      metric: "100%",
-      metricLabel: "Type Safety & Offline Sync",
+      title: "Real-Time Web & Audio Presence",
+      subtitle: "Authoritative playback sync and WebRTC voice (Sony)",
+      description: "Engineering real-time platforms with clock drift compensation (<150ms NOOP, pitch-preserving rate nudging) and automatic voice ducking state machines on LiveKit WebRTC.",
+      metric: "< 150 ms",
+      metricLabel: "Playback Clock Sync",
       icon: <Code2 className="w-4 h-4 text-purple-400" />,
-      tags: ["Next.js 15", "TypeScript", "Tailwind CSS", "CRDTs"],
+      tags: ["TypeScript", "Next.js", "LiveKit WebRTC", "WebSockets", "Node.js"],
     },
     {
       id: 3,
-      title: "Algorithmic Foundation & Rigor",
-      subtitle: "Advanced data structures and competitive problem solving",
-      description: "Deep theoretical grounding across graph algorithms, dynamic programming, and complexity optimization. Consistently maintaining top-percentile rating across 500+ solved algorithmic problems.",
-      metric: "500+",
-      metricLabel: "Problems Solved",
+      title: "Computer Science Rigor & Leadership",
+      subtitle: "Data structures, algorithms & academic governance",
+      description: "Strong theoretical grounding across DSA, Operating Systems, DBMS, and Computer Networks. Serving as Class Representative (CR) at JNTUH UCEH coordinating academic operations.",
+      metric: "8.025",
+      metricLabel: "JNTUH B.Tech CGPA",
       icon: <ShieldCheck className="w-4 h-4 text-rose-400" />,
-      tags: ["Graphs & Trees", "Dynamic Programming", "LeetCode", "Codeforces"],
+      tags: ["C++", "Python", "DSA", "SQL", "Class Representative"],
     },
   ];
 
@@ -441,8 +442,8 @@ export function EngineeringShowcase() {
                   </div>
 
                   <div className="flex items-center justify-between text-xs font-mono text-neutral-500 border-t border-neutral-900 pt-2">
-                    <span>SPECIALIZATION: SYSTEMS & DISTRIBUTED APPS</span>
-                    <span>STUDENT // BUILDER // B.TECH CSE '26</span>
+                    <span>SPECIALIZATION: COMPUTER VISION & SYSTEMS</span>
+                    <span>STUDENT // BUILDER // JNTUH CSE</span>
                   </div>
                 </div>
               )}
@@ -456,49 +457,49 @@ export function EngineeringShowcase() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
           <div className="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800/80 space-y-2 hover:border-neutral-700 transition-colors">
             <div className="text-3xl sm:text-5xl font-mono font-bold text-white tracking-tight">
-              500<span className="text-lg sm:text-2xl text-cobalt">+</span>
+              8.02<span className="text-lg sm:text-2xl text-cobalt">5</span>
             </div>
             <div className="text-xs font-mono uppercase text-neutral-400 font-semibold">
-              Algorithmic Problems
+              JNTUH B.Tech CGPA
             </div>
             <p className="text-xs text-neutral-400 leading-relaxed">
-              Top 8% contest rating on LeetCode with mastery over graphs, trees, and dynamic programming.
+              Computer Science & Engineering at JNTUH University College of Engineering, Hyderabad.
             </p>
           </div>
 
           <div className="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800/80 space-y-2 hover:border-neutral-700 transition-colors">
             <div className="text-3xl sm:text-5xl font-mono font-bold text-white tracking-tight">
-              65k<span className="text-lg sm:text-2xl text-cobalt">msg/s</span>
+              &lt;12<span className="text-lg sm:text-2xl text-cobalt">sec</span>
             </div>
             <div className="text-xs font-mono uppercase text-neutral-400 font-semibold">
-              Peak Broker Ingestion
+              Attendify 50+ Faces
             </div>
             <p className="text-xs text-neutral-400 leading-relaxed">
-              Zero-copy memory-mapped append logs engineered in Go on Aether Engine.
+              Batch presence verification using 512-D embeddings and RetinaFace/InsightFace ONNX.
             </p>
           </div>
 
           <div className="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800/80 space-y-2 hover:border-neutral-700 transition-colors">
             <div className="text-3xl sm:text-5xl font-mono font-bold text-white tracking-tight">
-              1.8<span className="text-lg sm:text-2xl text-emerald-400">ms</span>
+              18–22<span className="text-lg sm:text-2xl text-emerald-400">nrad</span>
             </div>
             <div className="text-xs font-mono uppercase text-neutral-400 font-semibold">
-              p99 Tail Latency
+              OptiLign PAT Precision
             </div>
             <p className="text-xs text-neutral-400 leading-relaxed">
-              Raft partition consensus eliminating latency jitter across distributed nodes.
+              Sub-micro-radian FSM optical beam alignment backed by 337 passing test suites.
             </p>
           </div>
 
           <div className="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800/80 space-y-2 hover:border-neutral-700 transition-colors">
             <div className="text-3xl sm:text-5xl font-mono font-bold text-white tracking-tight">
-              100<span className="text-lg sm:text-2xl text-purple-400">%</span>
+              976<span className="text-lg sm:text-2xl text-purple-400">/1k</span>
             </div>
             <div className="text-xs font-mono uppercase text-neutral-400 font-semibold">
-              Type-Safe & Resilient
+              Academic Distinction
             </div>
             <p className="text-xs text-neutral-400 leading-relaxed">
-              Strict end-to-end typing, local-first state machines, and high test coverage.
+              97.6% top-tier score across Mathematics, Physics, and Chemistry in Intermediate Board.
             </p>
           </div>
         </div>
